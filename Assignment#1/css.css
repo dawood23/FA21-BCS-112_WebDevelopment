@@ -27,7 +27,6 @@ header{
 
 .leftsection{
     width: 30%;
-    border-right: 2px solid black;
     display: flex;
     flex-direction: column;
 }
@@ -51,21 +50,25 @@ header{
 }
 
 .contact h2 {
-    
     color: rgb(227, 231, 233);
     font-size: 18px;
+    font-weight: 550;
     margin-bottom: 5px;
 }
 .contact h1,
 .contact h2 {
-    
     color: rgb(227, 231, 233);
     margin-bottom: 2px;
 }
-
+.contact p{
+    font-weight: 100;
+    font-size: 16px;
+}
 .contact a{
-    
     margin-bottom: 10px;
+    word-wrap: break-word;
+    display: inline-block;
+    max-width: 100%;
 }
 
 .underline {
@@ -75,11 +78,6 @@ header{
     margin-bottom: 15px; 
     
     background-color: rgb(227, 231, 233);
-}
-.contact a {
-    word-wrap: break-word;
-    display: inline-block;
-    max-width: 100%;
 }
 
 .Education{
@@ -99,7 +97,7 @@ header{
 .degree3 h2 {
     font-size: 18px;
     margin-bottom: 5px;
-    font-weight: bold
+    font-weight: 530
 }
 
 .degree1 h3,
@@ -109,6 +107,18 @@ header{
     color: rgb(202, 202, 202);
     font-weight: 100;
     margin-bottom: 5px;
+}
+.skills{
+    margin-left:10%;
+    padding: 20px;
+    color: rgb(227, 231, 233);
+}
+.skills ul{
+    margin-left: 20px;
+}
+.skills ul li{
+    margin-bottom: 5px;
+    font-size: 16px;
 }
 
 .languages{
@@ -129,5 +139,60 @@ header{
 .rightsection{
     width: 70%;
     padding: 20px 10px 20px 40px;
-    background-color: rgb(227, 231, 233);
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background-color: white;
+}
+.PersonalInformation{
+    padding: 10px;
+    margin-bottom: 40px;
+  
+}
+.name{
+    font-size: 32px;
+    color: rgb(59, 65, 81);
+    font-weight: bolder;
+    margin-bottom: 5px;
+}
+.name p span{
+    font-weight: 400;
+}
+.Designation{
+    font-size: 20px;
+    font-weight: 530;
+    color: rgb(132, 132, 132);
+    margin-bottom: 10px;
+}
+.about{
+    text-align:justify;
+    font-size: 18px;
+    color: rgb(64, 64, 64);
+}
+.experience{
+    padding: 10px;
+}
+.expheading{
+    font-size: 28px;
+    margin-bottom: 3px;
+    color:rgb(62, 66, 81);
+}
+.rightunderline{
+    height: 2px;
+    width: 99%;
+    margin-bottom: 20px;
+    background-color:rgb(70, 74, 90);
+}
+.first h3{
+    font-size: 18px;
+    color: rgb(98, 98, 98);
+}
+.first h2{
+    color: rgb(56, 56, 56);
+}
+.first p{
+    margin-top: 5px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    text-align: justify;
+    color: rgb(113, 113, 113);
 }
