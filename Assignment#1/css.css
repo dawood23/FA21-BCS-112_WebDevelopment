@@ -8,6 +8,10 @@
 body{
     width: 100vw;
     padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 header{
@@ -23,6 +27,7 @@ header{
     align-items: space-around;
     background-color:rgb(50, 59, 76);
     border-radius: 20px;
+    max-width: 850px;
 } 
 
 .leftsection{
@@ -82,8 +87,7 @@ header{
 
 .Education{
     margin-left: 10%;
-    padding: 20px;
-    
+    padding: 20px 20px 0px 20px;
     color: rgb(227, 231, 233);
 }
 .degree1,
@@ -106,17 +110,16 @@ header{
     font-size: 14px;
     color: rgb(202, 202, 202);
     font-weight: 100;
-    margin-bottom: 5px;
 }
-.skills{
+.Hobbies{
     margin-left:10%;
-    padding: 20px;
+    padding: 10px 20px 20px 20px;
     color: rgb(227, 231, 233);
 }
-.skills ul{
+.Hobbies ul{
     margin-left: 20px;
 }
-.skills ul li{
+.Hobbies ul li{
     margin-bottom: 5px;
     font-size: 16px;
 }
@@ -142,6 +145,7 @@ header{
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
     background-color: white;
+    border: 1px solid black
 }
 .PersonalInformation{
     padding: 10px;
@@ -195,4 +199,46 @@ header{
     font-size: 14px;
     text-align: justify;
     color: rgb(113, 113, 113);
+}
+
+.skills{
+ padding: 10px;   
+}
+
+.skills {
+    padding: 10px;
+}
+
+.skill {
+    margin-bottom: 10px;
+}
+
+.skill h2 {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: rgb(56, 56, 56);
+}
+.progresscontainer{
+    margin-left: 20px;
+}
+.progress {
+    height: 20px;
+    width: 85%;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.progress-bar {
+    height: 100%;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 10px;
+    color: white;
+    background-color: rgb(70, 65, 65);
+}
+.skills h2{
+    font-size: 18px;
+    color: rgb(85, 84, 86);
 }
