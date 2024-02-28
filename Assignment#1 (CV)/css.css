@@ -39,6 +39,10 @@ header{
     margin: 20% 20% 2% 20%;
     border-radius: 50%;
     width: 60%;
+    transition: all 0.2s ease-in;
+}
+.profile:hover{
+    transform: scale(1.1);
 }
 .contact {
     margin-left: 10%;
