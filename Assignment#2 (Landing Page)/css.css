@@ -20,6 +20,17 @@ a{
     color: black;
     text-decoration: none;
 }
+.icon{
+    width: 25%;
+    cursor: pointer;
+    transition: all 0.1s ease;
+}
+.icona{
+    width: 20%;
+}
+.icon:hover{
+    transform: scale(1.3);
+}
 .nav-item{
     font-size: 18px;
     margin-left: 10px;
@@ -39,10 +50,30 @@ a{
 .btn:hover{
   background-color: rgb(254, 188, 66);
 }
-.carousel-item{
-    height: 100vh;
+.slide-1{
+    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(../Assets/Slide1.png);
 }
-.carousel-item img{
-    height: 100%;
-    width: 100%;
+
+.slide-2{
+    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(../Assets/Slide2.png);
+}
+
+.slide-3{
+    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(../Assets/Slide3.png);
+}
+.backgroundimg{
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.font{
+    font-size: 65px;
+    margin-bottom: 30px;
+}
+
+.buttonDesign{
+    cursor: pointer;
+}
+.buttonDesign:hover{
+    cursor: pointer;
 }
