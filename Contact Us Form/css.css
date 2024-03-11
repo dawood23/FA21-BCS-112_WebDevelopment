@@ -11,7 +11,7 @@ body{
     color: black;
 }
 .navbar-brand{
-    width: 10%;
+    width: 10%;;
     margin-left: 3%;
 }
 .LogoImg{
@@ -87,3 +87,83 @@ a{
     color: white;
     transform: scale(1.1);
 }
+
+
+.outerContact{
+    font-family: sans-serif;
+    background-color: black;
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(../Assets/contactbg.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+  }
+
+  .ContactText{
+    color: white;
+    position: absolute;
+    overflow: hidden;
+    top: 30px;
+    left: 30px;
+    font-size: 40px;
+  }
+  
+  .contact {
+    width: 500px;
+    background-color: white;
+    max-height: 600px;
+    margin-right: 40px;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 20px;
+  }
+  
+  .contact form h2 {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .contact form p {
+    text-align: center;
+    color: #ccc;
+    margin-bottom: 30px;
+  }
+  
+  .ContactLabel {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .fields {
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 20px;
+  }
+  .formfields{
+    margin-left: 20px;
+  }
+  
+  textarea {
+    height: 150px;
+  }
+  
+  .contactbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    float: right;
+  }
+  
+  .contactbtn:hover {
+    background-color: #45a049;
+  }
+  
