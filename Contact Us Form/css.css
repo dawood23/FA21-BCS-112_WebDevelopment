@@ -166,4 +166,7 @@ a{
   .contactbtn:hover {
     background-color: #45a049;
   }
-  
+
+  .outerContact>h2{
+    top: 70px;
+  }
