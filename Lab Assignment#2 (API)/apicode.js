@@ -76,6 +76,7 @@ function createStory() {
             alert('Story created successfully:');
             $('#createTitle').val('');
             $('#createContent').val('');
+            
             stories();
         },
         error: function() {
@@ -103,7 +104,8 @@ function deleteStory(id) {
 
 $(document).ready(function() {
     stories();
-    $('#createBtn').click(function() {
+    $('#createBtn').click(function(event) {
+        event.preventDefault();
         createStory();
     });
 });
