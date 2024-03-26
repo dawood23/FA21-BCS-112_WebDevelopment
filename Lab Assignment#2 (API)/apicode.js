@@ -57,6 +57,8 @@ function createStory() {
             }),
             success: function () {
                 alert('Story updated successfully');
+                $('#createTitle').val('');
+                $('#createContent').val('');
                 stories();
             },
             error: function (error) {
