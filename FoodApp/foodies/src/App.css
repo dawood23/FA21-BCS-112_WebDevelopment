@@ -1,0 +1,173 @@
+*{
+  top: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  font-family: "Spline Sans", sans-serif;
+  color: #777;
+  line-height: 1.7;
+  color: black;
+}
+.navbar-brand{
+  width: 10%;;
+  margin-left: 3%;
+}
+.LogoImg{
+  width: 100%;
+}
+a{
+  color: black;
+  text-decoration: none;
+}
+.icon{
+  width: 25%;
+  cursor: pointer;
+  transition: all 0.1s ease;
+}
+.icona{
+  width: 20%;
+}
+.icon:hover{
+  transform: scale(1.3);
+}
+.nav-item{
+  font-size: 18px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.navbarflex{
+  display: flex;
+  align-items: end;
+  justify-content: end;
+}
+.btn{
+  border: 0;
+  padding: 12px 30px;
+}
+.btn-brand{
+  background-color:orange;
+  color: white;
+  font-weight: 600;
+  transition: all 0.1s ease-ins;
+}
+.btn:hover{
+background-color: rgb(254, 188, 66);
+}
+.slide-1{
+  background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(https://res-console.cloudinary.com/drwmyifro/thumbnails/v1/image/upload/v1715454974/U2xpZGUxX3ptMzUycQ==/drilldown
+  );
+}
+
+.slide-2{
+  background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(https://res-console.cloudinary.com/drwmyifro/thumbnails/v1/image/upload/v1715454976/U2xpZGUyX2Rpa3ppcg==/drilldown);
+}
+
+.slide-3{
+  background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(https://res-console.cloudinary.com/drwmyifro/thumbnails/v1/image/upload/v1715454977/U2xpZGUzX2twcmRkZw==/drilldown);
+}
+.backgroundimg{
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.font{
+  font-size: 65px;
+  margin-bottom: 30px;
+}
+
+.buttonDesign{
+  cursor: pointer;
+  position: relative;
+  z-index: 100;
+ transition: all 0.2s ease;
+}
+.buttonDesign:hover{
+  cursor: pointer;
+  color: white;
+  transform: scale(1.1);
+}
+
+
+.outerContact{
+  font-family: sans-serif;
+  background-color: black;
+  height: 100vh;
+  background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(https://res-console.cloudinary.com/drwmyifro/thumbnails/v1/image/upload/v1715454976/Y29udGFjdGJnX3duMXB4cQ==/drilldown);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.ContactText{
+  color: white;
+  position: absolute;
+  overflow: hidden;
+  top: 30px;
+  left: 30px;
+  font-size: 40px;
+}
+
+.contact {
+  width: 500px;
+  background-color: white;
+  max-height: 600px;
+  margin-right: 40px;
+  padding: 20px;
+  border: 1px solid black;
+  border-radius: 20px;
+}
+
+.contact form h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.contact form p {
+  text-align: center;
+  color: #ccc;
+  margin-bottom: 30px;
+}
+
+.ContactLabel {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.fields {
+  width: 95%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+.formfields{
+  margin-left: 20px;
+}
+
+textarea {
+  height: 150px;
+}
+
+.contactbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  float: right;
+}
+
+.contactbtn:hover {
+  background-color: #45a049;
+}
+
+.outerContact>h2{
+  top: 70px;
+}
