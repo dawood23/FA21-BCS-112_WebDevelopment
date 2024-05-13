@@ -27,7 +27,7 @@ a{
   transition: all 0.1s ease;
 }
 .icona{
-  width: 20%;
+  width: 10%;
 }
 .icon:hover{
   transform: scale(1.3);

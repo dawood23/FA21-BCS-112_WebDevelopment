@@ -48,9 +48,14 @@ export default function Navbar() {
               </li>
             </ul>
 
-            <li className="nav-item btn icona btn-success">
+            <li className="nav-item btn btn-success icona">
               <Link className="nav-link" to="/Login">
                 Login
+              </Link>
+            </li>
+            <li className="nav-item btn btn-success icona">
+              <Link className="nav-link" to="/SignUp">
+                SignUp
               </Link>
             </li>
           </div>
