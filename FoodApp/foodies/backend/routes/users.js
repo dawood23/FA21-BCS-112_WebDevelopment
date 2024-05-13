@@ -4,7 +4,7 @@ const User = require("../models/User");
 const { body, validationResult } = require("express-validator");
 
 router.post(
-  "/signup",
+  "/createuser",
   [
     body("email", "Invalid Email Format").isEmail(),
     body("password", "Password Too Short").isLength({ min: 5 }),
