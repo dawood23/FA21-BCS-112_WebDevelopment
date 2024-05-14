@@ -26,6 +26,9 @@ a{
     cursor: pointer;
     transition: all 0.1s ease;
 }
+.rbtn{
+  width: 10%;
+}
 .icona{
     width: 20%;
 }
@@ -56,15 +59,15 @@ a{
   background-color: rgb(254, 188, 66);
 }
 .slide-1{
-    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(../Assets/Slide1.png);
+    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(./Assets/Slide1.png);
 }
 
 .slide-2{
-    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(../Assets/Slide2.png);
+    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(./Assets/Slide2.png);
 }
 
 .slide-3{
-    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(../Assets/Slide3.png);
+    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(./Assets/Slide3.png);
 }
 .backgroundimg{
     background-position: center;
@@ -169,4 +172,8 @@ a{
 
   .outerContact>h2{
     top: 70px;
+  }
+  footer{
+    position: relative;
+    bottom: 0;
   }
