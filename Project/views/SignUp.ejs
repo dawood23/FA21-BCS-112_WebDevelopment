@@ -23,7 +23,6 @@
       }
       .container {
         max-width: 400px;
-
         border-radius: 10px;
         background-color: rgba(255, 255, 255, 0);
         border: 2px solid black;
@@ -40,6 +39,7 @@
   <body>
     <div class="container">
       <h1 class="text-white" style="align-content: center">Sign Up</h1>
+
       <form id="signupForm" class="text-white" action="" method="post">
         <div class="mb-3">
           <label for="name" class="form-label">Name</label>
@@ -85,13 +85,13 @@
         </div>
 
         <div class="container-fluid buttoncontainer">
-          <a
+          <button
             type="submit"
             class="mb-3 btn btn-primary btn-success"
             class="width:70%"
           >
             Submit
-          </a>
+          </button>
           <p class="text-white">
             Don't Have an Account?
             <a href="/user/Login" class="">Login</a>
