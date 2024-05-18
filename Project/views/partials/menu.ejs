@@ -1,0 +1,33 @@
+<div class="container">
+  <hr />
+  <h1 style="text-align: center">MENU</h1>
+  <hr />
+  <div class="row">
+    <% global.items.forEach(item => { %>
+    <div class="col-md-4 mb-4">
+      <div class="card h-100">
+        <img
+          class="card-img-top"
+          src="<%= item.img %>"
+          alt="<%= item.name %> image"
+        />
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title"><%= item.name %></h5>
+          <p class="card-text"><%= item.description %></p>
+          <div class="container w-100">
+            <select class="form-select m-2 bg-success rounded flex-fill">
+              <% item.options.forEach(option => { %> <%
+              Object.keys(option).forEach(key => { %>
+              <option value="<%= option[key] %>">
+                <%= key %> - <%= option[key] %>
+              </option>
+              <% }); %> <% }); %>
+            </select>
+            <div class="d-inline h-100 fs-5">Price:</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% }); %>
+  </div>
+</div>

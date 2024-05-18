@@ -8,9 +8,16 @@ const connectMongo = async () => {
   const foodItems = mongoose.connection.collection("items");
   try {
     const data = await foodItems.find({}).toArray();
-    console.log();
+    global.items = data;
   } catch (error) {
     console.error(error);
+  }
+  const foodCategory = mongoose.connection.collection("itemsCategory");
+  try {
+    const categ = await foodCategory.find({}).toArray();
+    global.categ = categ;
+  } catch (e) {
+    console.log(e);
   }
 };
 module.exports = connectMongo;
