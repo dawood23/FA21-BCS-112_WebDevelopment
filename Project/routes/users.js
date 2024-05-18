@@ -12,9 +12,13 @@ router.get("/Login", (req, res) => {
 router.post("/Login", async (req, res) => {
   let user = await User.findOne({ email: req.body.email });
   if (!user) return res.redirect("/SignUp");
-  if (user.password != req.body.password) return res.redirect("/user/Login");
+  const passCompare = await bcrypt.compare(req.body.password, user.password);
+  if (!passCompare) {
+    return res.redirect("/user/Login");
+  }
   console.log(user);
-  // req.session.user = user;
+
+  req.session.user = user;
   return res.redirect("/");
 });
 
@@ -23,10 +27,18 @@ router.get("/SignUp", (req, res) => {
 });
 
 router.post("/SignUp", async (req, res) => {
-  const salt = await bcrypt.genSalt(10);
-  let hashpassword = await bcrypt.hash(req.body.password, salt);
   try {
-    console.log(req.body);
+    const existingUser = await User.findOne({ email: req.body.email });
+    if (existingUser) {
+      // User with the same email already exists
+      return res
+        .status(400)
+        .json({ message: "User already exists. Please login." });
+    }
+
+    const salt = await bcrypt.genSalt(10);
+    let hashpassword = await bcrypt.hash(req.body.password, salt);
+
     const user = new User({
       name: req.body.name,
       location: req.body.location,
@@ -35,11 +47,15 @@ router.post("/SignUp", async (req, res) => {
       number: req.body.number,
     });
     await user.save();
-    res.redirect("/Login");
+    res.redirect("/user/Login");
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Failed to create user" });
   }
+});
+router.get("/logout", (req, res) => {
+  req.session.user = null;
+  res.redirect("/");
 });
 
 module.exports = router;

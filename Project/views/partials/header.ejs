@@ -23,25 +23,38 @@
         <li class="nav-item">
           <a class="nav-link" href="/">Home</a>
         </li>
+        <% if(user){ %>
         <li class="nav-item">
-          <a class="nav-link" href="/about">About</a>
+          <a class="nav-link" href="#">Orders</a>
         </li>
+        <% } %>
         <li class="nav-item">
           <a class="nav-link" href="#">Menu</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/contact">Contact</a>
         </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About</a>
+        </li>
       </ul>
-      <!--         <a href="#" class="icona"> 
-          <img src="\Assets\Delivery.png" alt="" class="icon" />
-        </a> -->
+
+      <% if(!user){ %>
       <li class="nav-item btn btn-success rbtn">
         <a class="nav-link" href="/user/Login"> Login </a>
       </li>
       <li class="nav-item btn btn-success rbtn">
         <a class="nav-link" href="/user/SignUp"> SignUp </a>
       </li>
+      <% }else{ %>
+      <a href="" class="icon">
+        <img src="\Assets\Cart.png" alt="" class="icona" />
+      </a>
+      <a href="/user/logout" class="icon"
+        ><img src="\Assets\logout.png" alt="" class="iconaa"
+      /></a>
+      <% } %>
     </div>
   </div>
 </nav>
