@@ -82,12 +82,10 @@ server.get("/cart", checkAuth, async (req, res) => {
 
 server.get("/orders", mainMiddleware, async (req, res) => {
   try {
-    // Query the database to fetch orders for the specific user
     const orders = await Order.find({ user: req.session.user._id }).populate(
       "items.item"
     );
 
-    // Render the EJS template with orders data
     res.render("orders", { orders });
   } catch (error) {
     console.error("Error fetching orders:", error);
