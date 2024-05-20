@@ -53,6 +53,7 @@ router.post("/SignUp", async (req, res) => {
     res.status(500).json({ message: "Failed to create user" });
   }
 });
+
 router.get("/logout", (req, res) => {
   req.session.user = null;
   res.redirect("/");

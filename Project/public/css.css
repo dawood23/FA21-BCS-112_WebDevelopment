@@ -5,6 +5,7 @@
     box-sizing: border-box;
 }
 body{
+    position: relative;
     font-family: "Spline Sans", sans-serif;
     color: #777;
     line-height: 1.7;
@@ -38,7 +39,6 @@ a{
 .icon:hover{
     transform: scale(1.2);
 }
-
 .nav-item{
     font-size: 18px;
     margin-left: 10px;
@@ -179,5 +179,5 @@ a{
   }
   footer{
     position: relative;
-    bottom: 0;
+    top: 50vh;
   }

@@ -13,9 +13,20 @@ router.post("/menu", (req, res) => {
   try {
     res.send([global.items, global.categ]);
   } catch (e) {
-    res.send("Something Went Wrong!! Unable to load meu Items");
+    res.send("Something Went Wrong!! Unable to load menu Items");
   }
 });
+
+router.get("/add-to-cart/:id/:quant/:price", async (req, res) => {
+  let cart = req.cookies.cart;
+  if (!cart) cart = [];
+  cart.push([req.params.id, req.params.quant, req.params.price]);
+  res.cookie("cart", cart);
+
+  // return res.send(req.cookies);
+  return res.redirect("/");
+});
+
 // router.get("/", (req, res) => {
 //   res.send("This is the items list");
 // });
