@@ -16,10 +16,12 @@
             <div class="card-body">
               <h5 class="card-title"><%= item[0].name %></h5>
               <p class="card-text"><%= item[0].description %></p>
-              <p class="card-text"><strong>Price:</strong> Rs <%= item[2] %></p>
+              <p class="card-text">
+                <strong>Price:</strong> Rs. <%= item[2] %>
+              </p>
               <p class="card-text"><strong>Quantity:</strong> <%= item[1] %></p>
               <p class="card-text">
-                <strong>Total:</strong> Rs <%= item[1] * item[2] %>
+                <strong>Total:</strong> Rs. <%= item[1] * item[2] %>
               </p>
             </div>
           </div>

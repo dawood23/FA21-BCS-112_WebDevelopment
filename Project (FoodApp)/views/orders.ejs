@@ -1,0 +1,25 @@
+<div class="container mt-5">
+  <h1 class="mb-4">Your Orders</h1>
+
+  <% orders.forEach(order => { %>
+  <div class="card mb-3">
+    <div class="card-header">Order ID: <%= order.orderId %></div>
+    <div class="card-body">
+      <h5 class="card-title">Items:</h5>
+
+      <% order.items.forEach(item => { %>
+      <p class="card-text">
+        <%= item.quantity %> x <%= item.item.name %> - Rs. <%= item.price %>
+      </p>
+      <% }) %>
+      <p class="card-text">
+        <strong>Total Price:</strong> Rs. <%= order.totalPrice %>
+      </p>
+      <p class="card-text"><strong>Status:</strong> <%= order.status %></p>
+      <p class="card-text">
+        <strong>Order Date:</strong> <%= order.createdAt.toDateString() %>
+      </p>
+    </div>
+  </div>
+  <% }) %>
+</div>
