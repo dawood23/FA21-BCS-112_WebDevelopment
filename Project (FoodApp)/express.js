@@ -41,6 +41,10 @@ server.get("/home", checkAuth, mainMiddleware, (req, res) => {
   res.render("home", { title: "Home" });
 });
 
+server.get("/menu", mainMiddleware, (req, res) => {
+  res.render("menu", { title: "menu" });
+});
+
 server.get("/about", mainMiddleware, (req, res) => {
   res.render("about", { title: "About Us" });
 });
@@ -80,13 +84,26 @@ server.get("/cart", checkAuth, async (req, res) => {
   res.render("cart", { items: itemsArr, total: Total });
 });
 
+const PAGE_SIZE = 2;
+
 server.get("/orders", mainMiddleware, async (req, res) => {
   try {
-    const orders = await Order.find({ user: req.session.user._id }).populate(
-      "items.item"
-    );
+    let page = parseInt(req.query.page) || 1; // Extract page from query params
+    let pageSize = PAGE_SIZE;
+    let skip = (page - 1) * pageSize;
 
-    res.render("orders", { orders });
+    let totalOrdersCount = await Order.countDocuments({
+      user: req.session.user._id,
+    });
+    let totalPages = Math.ceil(totalOrdersCount / pageSize);
+
+    let orders = await Order.find({ user: req.session.user._id })
+      .sort({ createdAt: -1 })
+      .skip(skip)
+      .limit(pageSize)
+      .populate("items.item");
+
+    res.render("orders", { orders, page, totalPages });
   } catch (error) {
     console.error("Error fetching orders:", error);
     res.status(500).json({ error: "Internal server error" });

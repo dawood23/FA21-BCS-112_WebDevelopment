@@ -72,7 +72,6 @@
           }').value)">
   Add to Cart
 </a>
-
                     <%}%>
                     </div>
                 </div>
@@ -130,7 +129,6 @@
           }').value)">
   Add to Cart
 </a>
-
                     <%}%>
                     </div>
                 </div>
@@ -144,13 +142,14 @@
 
   function updatePrice(element) {
     const cardBody = element.closest(".card-body");
-    const optionValue = parseFloat(cardBody.querySelector("select").value);
-    const quantityId = element.id.split("_")[1];
-    const quantity = parseInt(
-      document.getElementById(`quantity_${quantityId}`).value
-    );
+    const selectElement = cardBody.querySelector("select");
+    const selectedOption = selectElement.options[selectElement.selectedIndex];
+    const optionValue = parseFloat(selectedOption.value);
+
+    const quantity = parseInt(cardBody.querySelector(".form-control").value);
     const price = optionValue * quantity;
-    cardBody.querySelector(".price").innerText = price;
+
+    cardBody.querySelector(".price").innerText = price.toFixed(2);
   }
 
   function addToCart(button, itemName, quantity) {

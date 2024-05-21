@@ -1,5 +1,5 @@
 <div class="container mt-5">
-  <h1 class="mb-4">Your Orders</h1>
+  <h1 class="mb-4" style="text-align: center">Your Orders</h1>
 
   <% orders.forEach(order => { %>
   <div class="card mb-3">
@@ -17,9 +17,20 @@
       </p>
       <p class="card-text"><strong>Status:</strong> <%= order.status %></p>
       <p class="card-text">
-        <strong>Order Date:</strong> <%= order.createdAt.toDateString() %>
+        <strong>Order Date:</strong> <%= order.createdAt.toLocaleDateString() %>
       </p>
+      <p><strong>Time: </strong> <%= order.createdAt.toLocaleTimeString() %></p>
     </div>
   </div>
   <% }) %>
+
+  <nav class="pagination-nav mt-4" aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+      <% for(let index=1; index <= totalPages; index++) { %>
+      <li class="page-item <%= index === page ? 'active' : '' %>">
+        <a class="page-link" href="/orders?page=<%= index %>"> <%= index %> </a>
+      </li>
+      <% } %>
+    </ul>
+  </nav>
 </div>
