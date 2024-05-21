@@ -53,8 +53,8 @@ server.get("/contact", mainMiddleware, (req, res) => {
   res.render("contact", { title: "Contact Us" });
 });
 
-server.get("/check", (req, res) => {
-  res.render("check");
+server.get("/admin", (req, res) => {
+  res.render("admin", { layout: false });
 });
 
 server.use("/user", require("./routes/users"));

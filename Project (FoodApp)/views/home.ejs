@@ -14,7 +14,11 @@
           <h1 class="display-1 text-white fw-bold">
             Where Every Bite Tells a Delicious Story
           </h1>
-          <a href="#" class="btn btn-brand buttonDesign">Order Now</a>
+          <% if(user){ %>
+          <a href="/menu" class="btn btn-brand buttonDesign">Order Now</a>
+          <% }else{ %>
+          <a href="/user/login" class="btn btn-brand buttonDesign">Order Now</a
+          ><% } %>
         </div>
       </div>
     </div>
@@ -27,7 +31,11 @@
             Indulge in Culinary Adventures at Foodies: Where Every Dish is a
             Masterpiece!
           </h1>
-          <a href="#" class="btn btn-brand buttonDesign">Order Now</a>
+          <% if(user){ %>
+          <a href="/menu" class="btn btn-brand buttonDesign">Order Now</a>
+          <% }else{ %>
+          <a href="/user/login" class="btn btn-brand buttonDesign">Order Now</a
+          ><% } %>
         </div>
       </div>
     </div>
@@ -40,7 +48,11 @@
             Experience a Symphony of Taste: Elevate Your Dining Journey at
             Foodies - Where Passion Meets Palate!
           </h1>
-          <a href="#" class="btn btn-brand buttonDesign">Order Now</a>
+          <% if(user){ %>
+          <a href="/menu" class="btn btn-brand buttonDesign">Order Now</a>
+          <% }else{ %>
+          <a href="/user/login" class="btn btn-brand buttonDesign">Order Now</a
+          ><% } %>
         </div>
       </div>
     </div>
