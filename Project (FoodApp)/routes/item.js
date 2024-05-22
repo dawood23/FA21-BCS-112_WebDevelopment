@@ -24,7 +24,28 @@ router.get("/add-to-cart/:id/:quant/:price", async (req, res) => {
   res.cookie("cart", cart);
 
   // return res.send(req.cookies);
-  return res.redirect("/");
+  return res.redirect("/menu");
+});
+
+router.get("/add-to-cart/delete/:id", (req, res) => {
+  let cart = req.cookies.cart;
+
+  const id = parseInt(req.params.id);
+
+  if (
+    cart &&
+    Array.isArray(cart) &&
+    !isNaN(id) &&
+    id >= 0 &&
+    id < cart.length
+  ) {
+    cart.splice(id, 1);
+    console.log(cart);
+    res.cookie("cart", cart);
+    return res.redirect("/cart");
+  } else {
+    return res.status(400).send("Invalid request");
+  }
 });
 
 // router.get("/", (req, res) => {

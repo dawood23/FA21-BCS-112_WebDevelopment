@@ -21,6 +21,15 @@
       </p>
       <p><strong>Time: </strong> <%= order.createdAt.toLocaleTimeString() %></p>
     </div>
+    <% if(order.status=="Pending") {%>
+    <form
+      action="/cancelorder/<%= order._id %>"
+      method="post"
+      style="width: 60%"
+    >
+      <button type="submit" class="btn btn-danger m-3">Cancel Order</button>
+    </form>
+    <%}%>
   </div>
   <% }) %>
 

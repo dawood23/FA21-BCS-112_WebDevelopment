@@ -1,7 +1,7 @@
 <div class="container py-4">
   <h1 class="text-center mb-4">Your Cart</h1>
   <div class="row">
-    <% items.forEach(item => { %>
+    <% items.forEach((item, index) => { %>
     <div class="col-md-6">
       <div class="card mb-4">
         <div class="row g-0">
@@ -23,15 +23,27 @@
               <p class="card-text">
                 <strong>Total:</strong> Rs. <%= item[1] * item[2] %>
               </p>
+              <button class="btn btn-danger" onclick="deleteItem(<%=index %>)">
+                Delete
+              </button>
             </div>
           </div>
         </div>
       </div>
     </div>
     <% }) %>
-    <strong>Grand Total: <%= total%></strong>
+    <div class="col-12">
+      <h3>Grand Total: Rs. <%= total %></h3>
+    </div>
   </div>
   <div class="text-center">
     <a href="/placeorder" class="btn btn-primary">Place Order</a>
   </div>
 </div>
+
+<script>
+  function deleteItem(index) {
+    console.log("delete item", index);
+    window.location.href = `items/add-to-cart/delete/${index}"`;
+  }
+</script>

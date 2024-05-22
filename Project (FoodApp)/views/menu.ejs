@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="./menu.css" />
+
 <div class="container mt-5" id="menu">
   <hr />
   <h1 style="text-align: center">MENU</h1>
@@ -115,8 +117,12 @@
                         .join("")}
                     </select>
                     <div class="container w-100 mb-4">
-                      <label for="quantity" class="form-label">Quantity:</label>
-                      <input type="number" class="form-control" id="quantity" value="1" min="1" onchange="updatePrice(this)">
+                      <label for="quantity_${
+                        item._id
+                      }" class="form-label">Quantity:</label>
+                      <input type="number" class="form-control" id="quantity_${
+                        item._id
+                      }" value="1" min="1" onchange="updatePrice(this)">
                     </div>
                     <div class="d-inline fs-5">Price: <span class="price">${
                       item.options[0][Object.keys(item.options[0])[0]]
