@@ -32,7 +32,7 @@ server.use(
   })
 );
 
-server.get("/", initmid, (req, res) => {
+server.get("/", initmid, mainMiddleware, (req, res) => {
   res.render("home", { title: "Home" });
 });
 
@@ -52,9 +52,13 @@ server.get("/contact", mainMiddleware, (req, res) => {
   res.render("contact", { title: "Contact Us" });
 });
 
-server.get("/admin", (req, res) => {
-  res.render("admin", { layout: false });
+server.get("/admin", checkAuth, mainMiddleware, async (req, res) => {
+  let items = await item.find();
+  console.log("item", items);
+  res.render("admin", { layout: false, item: items });
 });
+
+server.use("/admin", require("./routes/admin"));
 
 server.use("/user", require("./routes/users"));
 
@@ -83,6 +87,7 @@ server.get("/cart", checkAuth, async (req, res) => {
 });
 
 server.use("/", require("./routes/order"));
+
 server.listen(5000, () => {
   console.log("Started Listening At 5000");
 });

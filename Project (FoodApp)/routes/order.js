@@ -1,11 +1,12 @@
 const express = require("express");
 const server = express.Router();
 let mainMiddleware = require("../middlewares/mainMiddleware");
+let auth = require("../middlewares/checkAuth");
 let Order = require("../models/order");
 
 const PAGE_SIZE = 2;
 
-server.get("/orders", mainMiddleware, async (req, res) => {
+server.get("/orders", auth, mainMiddleware, async (req, res) => {
   try {
     let page = parseInt(req.query.page) || 1;
     let pageSize = PAGE_SIZE;
@@ -29,7 +30,7 @@ server.get("/orders", mainMiddleware, async (req, res) => {
   }
 });
 
-server.get("/placeorder", async (req, res) => {
+server.get("/placeorder", auth, async (req, res) => {
   try {
     const orderData = req.cookies.order;
     const [itemsArr, totalPrice] = orderData;

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Item</title>
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <!-- Custom CSS -->
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+      .container {
+        margin-top: 50px;
+      }
+      form {
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+      label {
+        font-weight: bold;
+      }
+      textarea {
+        resize: vertical;
+      }
+      button[type="submit"] {
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Body section with form -->
+    <div class="container">
+      <h1>Add Item</h1>
+      <form action="" method="POST" id="addItemForm">
+        <div class="form-group">
+          <label for="category">Category:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="category"
+            name="category"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            name="name"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="img">Image URL:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="img"
+            name="img"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="description">Description:</label>
+          <textarea
+            class="form-control"
+            id="description"
+            name="description"
+            rows="4"
+            required
+          ></textarea>
+        </div>
+        <!-- Options -->
+        <div id="optionsContainer">
+          <!-- Option 1 -->
+          <div class="form-group option">
+            <label for="price-1">Price:</label>
+            <input
+              type="text"
+              class="form-control"
+              name="options[0][price]"
+              required
+            />
+            <label for="type-1">Type:</label>
+            <input
+              type="text"
+              class="form-control"
+              name="options[0][type]"
+              required
+            />
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary" id="addOptionBtn">
+          Add Option
+        </button>
+        <!-- End Options -->
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const addOptionBtn = document.getElementById("addOptionBtn");
+        const optionsContainer = document.getElementById("optionsContainer");
+        let optionIndex = 1;
+
+        addOptionBtn.addEventListener("click", function () {
+          const optionDiv = document.createElement("div");
+          optionDiv.classList.add("form-group", "option");
+
+          const priceLabel = document.createElement("label");
+          priceLabel.textContent = "Price:";
+          const priceInput = document.createElement("input");
+          priceInput.type = "text";
+          priceInput.classList.add("form-control");
+          priceInput.name = `options[${optionIndex}][price]`;
+          priceInput.required = true;
+
+          const typeLabel = document.createElement("label");
+          typeLabel.textContent = "Type:";
+          const typeInput = document.createElement("input");
+          typeInput.type = "text";
+          typeInput.classList.add("form-control");
+          typeInput.name = `options[${optionIndex}][type]`;
+          typeInput.required = true;
+
+          optionDiv.appendChild(priceLabel);
+          optionDiv.appendChild(priceInput);
+          optionDiv.appendChild(typeLabel);
+          optionDiv.appendChild(typeInput);
+
+          optionsContainer.appendChild(optionDiv);
+
+          optionIndex++;
+        });
+      });
+    </script>
+  </body>
+</html>
