@@ -1,0 +1,174 @@
+<link rel="stylesheet" href="./menu.css" />
+
+<div class="container mt-5" id="menu">
+  <hr />
+  <h1 style="text-align: center">MENU</h1>
+  <hr />
+
+  <div class="mb-3">
+    <label for="categorySelect" class="form-label">Select Category:</label>
+    <select
+      class="form-select"
+      id="categorySelect"
+      onchange="filterMenuItems(this.value)"
+    >
+      <option value="">All Categories</option>
+      <% global.categ.forEach(category => { %>
+      <option value="<%= category.category %>"><%= category.category %></option>
+      <% }); %>
+    </select>
+  </div>
+
+  <div class="row" id="menuItems">
+    <!-- Menu items will be generated here -->
+  </div>
+</div>
+
+<script>
+  loadMenuItems();
+
+  function loadMenuItems() {
+    fetch("/items/menu")
+      .then((response) => response.json())
+      .then((data) => {
+        const [items, categories] = data;
+        const menuItemsContainer = document.getElementById("menuItems");
+        menuItemsContainer.innerHTML = "";
+        items.forEach((item) => {
+          menuItemsContainer.innerHTML += `
+            <div class="col-md-4 mb-5">
+              <div class="card h-100">
+                <img class="card-img-top" src="${item.img}" alt="${
+            item.name
+          } image" style="object-fit: cover; height: 200px;">
+                <div class="card-body d-flex flex-column">
+                  <h5 class="card-title">${item.name}</h5>
+                  <p class="card-text">${item.description}</p>
+                  <div class="container w-100">
+                    <select class="form-select m-2 w-100 bg-success rounded flex-fill" onchange="updatePrice(this)">
+                      ${item.options
+                        .map((option) =>
+                          Object.entries(option)
+                            .filter(([key, value]) => key !== "_id")
+                            .map(
+                              ([key, value]) =>
+                                `<option value="${value}">${key}: ${value}</option>`
+                            )
+                            .join("")
+                        )
+                        .join("")}
+                    </select>
+                    <div class="container w-100 mb-4">
+                      <label for="quantity_${
+                        item._id
+                      }" class="form-label">Quantity:</label>
+                      <input type="number" class="form-control" id="quantity_${
+                        item._id
+                      }" value="1" min="1" onchange="updatePrice(this)">
+                    </div>
+                    <div class="d-inline fs-5">Price: <span class="price">${
+                      item.options[0][Object.keys(item.options[0])[1]]
+                    }</span></div>
+                    <% if(user){ %>
+                      <a href="#" class="btn btn-warning text-white mt-4" style="width:100%" onclick="addToCart(this, '${
+                        item.name
+                      }', document.getElementById('quantity_${
+            item._id
+          }').value)">
+  Add to Cart
+</a>
+                    <%}%>
+                    </div>
+                </div>
+              </div>
+            </div>
+          `;
+        });
+      })
+      .catch((error) => console.error("Error fetching menu items:", error));
+  }
+
+  function filterMenuItems(category) {
+    fetch("/items/menu")
+      .then((response) => response.json())
+      .then((data) => {
+        const [items, categories] = data;
+        const filteredItems = category
+          ? items.filter((item) => item.category === category)
+          : items;
+        const menuItemsContainer = document.getElementById("menuItems");
+        menuItemsContainer.innerHTML = "";
+        filteredItems.forEach((item) => {
+          menuItemsContainer.innerHTML += `
+            <div class="col-md-4 mb-5">
+              <div class="card h-100">
+                <img class="card-img-top" src="${item.img}" alt="${
+            item.name
+          } image" style="object-fit: cover; height: 200px;">
+                <div class="card-body d-flex flex-column">
+                  <h5 class="card-title">${item.name}</h5>
+                  <p class="card-text">${item.description}</p>
+                  <div class="container w-100">
+                    <select class="form-select m-2 w-100 bg-success rounded flex-fill" onchange="updatePrice(this)">
+                      ${item.options
+                        .map((option) =>
+                          Object.entries(option)
+                            .filter(([key, value]) => key !== "_id")
+                            .map(
+                              ([key, value]) =>
+                                `<option value="${value}">${key}: ${value}</option>`
+                            )
+                            .join("")
+                        )
+                        .join("")}
+                    </select>
+                    <div class="container w-100 mb-4">
+                      <label for="quantity_${
+                        item._id
+                      }" class="form-label">Quantity:</label>
+                      <input type="number" class="form-control" id="quantity_${
+                        item._id
+                      }" value="1" min="1" onchange="updatePrice(this)">
+                    </div>
+                    <div class="d-inline fs-5">Price: <span class="price">${
+                      item.options[0][Object.keys(item.options[0])[0]]
+                    }</span></div>
+                    <% if(user){ %>
+                      <a href="#" class="btn btn-warning text-white mt-4" style="width:100%" onclick="addToCart(this, '${
+                        item.name
+                      }', document.getElementById('quantity_${
+            item._id
+          }').value)">
+  Add to Cart
+</a>
+                    <%}%>
+                    </div>
+                </div>
+              </div>
+            </div>
+          `;
+        });
+      })
+      .catch((error) => console.error("Error fetching menu items:", error));
+  }
+
+  function updatePrice(element) {
+    const cardBody = element.closest(".card-body");
+    const selectElement = cardBody.querySelector("select");
+    const selectedOption = selectElement.options[selectElement.selectedIndex];
+    const optionValue = parseFloat(selectedOption.value);
+
+    const quantity = parseInt(cardBody.querySelector(".form-control").value);
+    const price = optionValue * quantity;
+
+    cardBody.querySelector(".price").innerText = price.toFixed(2);
+  }
+
+  function addToCart(button, itemName, quantity) {
+    const price = button
+      .closest(".card-body")
+      .querySelector(".price").textContent;
+
+    window.location.href = `/items/add-to-cart/${itemName}/${quantity}/${price}`;
+  }
+</script>
