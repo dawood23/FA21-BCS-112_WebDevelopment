@@ -48,10 +48,13 @@
                     <select class="form-select m-2 w-100 bg-success rounded flex-fill" onchange="updatePrice(this)">
                       ${item.options
                         .map((option) =>
-                          Object.entries(option).map(
-                            ([key, value]) =>
-                              `<option value="${value}">${key} - ${value}</option>`
-                          )
+                          Object.entries(option)
+                            .filter(([key, value]) => key !== "_id")
+                            .map(
+                              ([key, value]) =>
+                                `<option value="${value}">${key}: ${value}</option>`
+                            )
+                            .join("")
                         )
                         .join("")}
                     </select>
@@ -64,7 +67,7 @@
                       }" value="1" min="1" onchange="updatePrice(this)">
                     </div>
                     <div class="d-inline fs-5">Price: <span class="price">${
-                      item.options[0][Object.keys(item.options[0])[0]]
+                      item.options[0][Object.keys(item.options[0])[1]]
                     }</span></div>
                     <% if(user){ %>
                       <a href="#" class="btn btn-warning text-white mt-4" style="width:100%" onclick="addToCart(this, '${
@@ -109,10 +112,13 @@
                     <select class="form-select m-2 w-100 bg-success rounded flex-fill" onchange="updatePrice(this)">
                       ${item.options
                         .map((option) =>
-                          Object.entries(option).map(
-                            ([key, value]) =>
-                              `<option value="${value}">${key} - ${value}</option>`
-                          )
+                          Object.entries(option)
+                            .filter(([key, value]) => key !== "_id")
+                            .map(
+                              ([key, value]) =>
+                                `<option value="${value}">${key}: ${value}</option>`
+                            )
+                            .join("")
                         )
                         .join("")}
                     </select>

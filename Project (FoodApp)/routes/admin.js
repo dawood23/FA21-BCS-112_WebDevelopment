@@ -55,4 +55,13 @@ router.post("/additem", auth, async (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 });
+
+router.post("/removeitem/:id", auth, async (req, res) => {
+  try {
+    const items = await item.findByIdAndDelete(req.params.id);
+  } catch (e) {
+    console.log(e);
+  }
+  return res.redirect("/admin");
+});
 module.exports = router;

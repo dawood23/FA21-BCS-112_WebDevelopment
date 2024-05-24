@@ -54,7 +54,6 @@ server.get("/contact", mainMiddleware, (req, res) => {
 
 server.get("/admin", checkAuth, mainMiddleware, async (req, res) => {
   let items = await item.find();
-  console.log("item", items);
   res.render("admin", { layout: false, item: items });
 });
 

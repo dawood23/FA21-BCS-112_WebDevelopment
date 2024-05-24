@@ -17,7 +17,7 @@ router.post("/Login", async (req, res) => {
       req.session.user = user;
       return res.redirect("/admin/order-update");
     }
-    res.redirect("/user/login");
+    return res.redirect("/user/login");
   }
   const passCompare = await bcrypt.compare(req.body.password, user.password);
   if (!passCompare) {
@@ -37,7 +37,6 @@ router.post("/SignUp", async (req, res) => {
   try {
     const existingUser = await User.findOne({ email: req.body.email });
     if (existingUser) {
-      // User with the same email already exists
       return res
         .status(400)
         .json({ message: "User already exists. Please login." });

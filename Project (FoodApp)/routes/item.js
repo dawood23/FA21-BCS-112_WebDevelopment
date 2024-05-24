@@ -1,17 +1,22 @@
 const express = require("express");
 const router = express.Router();
+const item = require("../models/items");
 
-router.get("/menu", (req, res) => {
+router.get("/menu", async (req, res) => {
   try {
-    res.send([global.items, global.categ]);
+    const items = await item.find();
+
+    res.send([items, global.categ]);
   } catch (e) {
     res.send("Something Went Wrong!! Unable to load menu Items");
   }
 });
 
-router.post("/menu", (req, res) => {
+router.post("/menu", async (req, res) => {
   try {
-    res.send([global.items, global.categ]);
+    const items = await item.find();
+
+    res.send([items, global.categ]);
   } catch (e) {
     res.send("Something Went Wrong!! Unable to load menu Items");
   }
