@@ -1,0 +1,49 @@
+<div class="container py-4">
+  <h1 class="text-center mb-4">Your Cart</h1>
+  <div class="row">
+    <% items.forEach((item, index) => { %>
+    <div class="col-md-6">
+      <div class="card mb-4">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img
+              src="<%= item[0].img %>"
+              class="img-fluid rounded-start"
+              alt="<%= item[0].name %>"
+            />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title"><%= item[0].name %></h5>
+              <p class="card-text"><%= item[0].description %></p>
+              <p class="card-text">
+                <strong>Price:</strong> Rs. <%= item[2] %>
+              </p>
+              <p class="card-text"><strong>Quantity:</strong> <%= item[1] %></p>
+              <p class="card-text">
+                <strong>Total:</strong> Rs. <%= item[1] * item[2] %>
+              </p>
+              <button class="btn btn-danger" onclick="deleteItem(<%=index %>)">
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% }) %>
+    <div class="col-12">
+      <h3>Grand Total: Rs. <%= total %></h3>
+    </div>
+  </div>
+  <div class="text-center">
+    <a href="/placeorder" class="btn btn-primary">Place Order</a>
+  </div>
+</div>
+
+<script>
+  function deleteItem(index) {
+    console.log("delete item", index);
+    window.location.href = `items/add-to-cart/delete/${index}"`;
+  }
+</script>

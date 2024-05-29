@@ -1,0 +1,129 @@
+<div
+  id="carouselExampleIndicators"
+  class="carousel slide"
+  data-bs-ride="carousel"
+  data-bs-interval="4000"
+>
+  <div class="carousel-inner">
+    <div class="carousel-item text-center vh-100 backgroundimg active slide-1">
+      <div
+        class="container h-100 d-flex align-items-center justify-content-center"
+      >
+        <div class="col-lg-8">
+          <h2 class="text-white">WELCOME TO FOODIES</h2>
+          <h1 class="display-1 text-white fw-bold">
+            Where Every Bite Tells a Delicious Story
+          </h1>
+          <% if(user){ %>
+          <a href="/menu" class="btn btn-brand buttonDesign">Order Now</a>
+          <% }else{ %>
+          <a href="/user/login" class="btn btn-brand buttonDesign">Order Now</a
+          ><% } %>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item text-center vh-100 backgroundimg slide-2">
+      <div
+        class="container h-100 d-flex align-items-center justify-content-center"
+      >
+        <div class="col-lg-8">
+          <h1 class="display-1 text-white font fw-bold">
+            Indulge in Culinary Adventures at Foodies: Where Every Dish is a
+            Masterpiece!
+          </h1>
+          <% if(user){ %>
+          <a href="/menu" class="btn btn-brand buttonDesign">Order Now</a>
+          <% }else{ %>
+          <a href="/user/login" class="btn btn-brand buttonDesign">Order Now</a
+          ><% } %>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item text-center vh-100 backgroundimg slide-3">
+      <div
+        class="container h-100 d-flex align-items-center justify-content-center"
+      >
+        <div class="col-lg-8">
+          <h1 class="display-1 text-white font fw-bold">
+            Experience a Symphony of Taste: Elevate Your Dining Journey at
+            Foodies - Where Passion Meets Palate!
+          </h1>
+          <% if(user){ %>
+          <a href="/menu" class="btn btn-brand buttonDesign">Order Now</a>
+          <% }else{ %>
+          <a href="/user/login" class="btn btn-brand buttonDesign">Order Now</a
+          ><% } %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button
+    class="carousel-control-prev"
+    type="button"
+    data-bs-target="#carouselExampleIndicators"
+    data-bs-slide="prev"
+  >
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button
+    class="carousel-control-next"
+    type="button"
+    data-bs-target="#carouselExampleIndicators"
+    data-bs-slide="next"
+  >
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+  <div class="carousel-indicators">
+    <button
+      type="button"
+      data-bs-target="#carouselExampleIndicators"
+      data-bs-slide-to="0"
+      class="active"
+      aria-current="true"
+      aria-label="Slide 1"
+    ></button>
+    <button
+      type="button"
+      data-bs-target="#carouselExampleIndicators"
+      data-bs-slide-to="1"
+      aria-label="Slide 2"
+    ></button>
+    <button
+      type="button"
+      data-bs-target="#carouselExampleIndicators"
+      data-bs-slide-to="2"
+      aria-label="Slide 3"
+    ></button>
+  </div>
+</div>
+
+<div class="container" style="width: 100%">
+  <hr />
+  <h2 style="align-self: center">Featured Products</h2>
+  <hr />
+  <a href="/visited-products" class="btn btn-brand mb-2">Visited Products</a>
+  <div class="row">
+    <% featuredProducts.forEach(product => { %>
+    <div class="col-md-4 mb-3">
+      <div class="card">
+        <img
+          src="<%= product.img %>"
+          class="card-img-top"
+          alt="<%= product.name %>"
+          style="height: 200px; object-fit: cover"
+        />
+        <div class="card-body">
+          <h5 class="card-title"><%= product.name %></h5>
+          <p class="card-text"><%= product.description %></p>
+          <p class="card-text">Category: <%= product.category %></p>
+          <a href="/products/<%= product._id %>" class="btn btn-primary"
+            >Visit Item</a
+          >
+        </div>
+      </div>
+    </div>
+    <% }) %>
+  </div>
+</div>

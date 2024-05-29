@@ -1,0 +1,24 @@
+<div class="container" style="width: 100%">
+  <hr />
+  <h2 style="align-self: center">Visited Products</h2>
+  <hr />
+  <div class="row">
+    <% Products.forEach(product => { %>
+    <div class="col-md-4 mb-3">
+      <div class="card">
+        <img
+          src="<%= product.img %>"
+          class="card-img-top"
+          alt="<%= product.name %>"
+          style="height: 200px; object-fit: cover"
+        />
+        <div class="card-body">
+          <h5 class="card-title"><%= product.name %></h5>
+          <p class="card-text"><%= product.description %></p>
+          <p class="card-text">Category: <%= product.category %></p>
+        </div>
+      </div>
+    </div>
+    <% }) %>
+  </div>
+</div>
